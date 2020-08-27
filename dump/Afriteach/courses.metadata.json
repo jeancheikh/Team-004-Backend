@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"Afriteach.courses"}],"uuid":"f15d405d9a8c446bbe0d1a42a587bb42"}
