@@ -1,20 +1,27 @@
-const express = require('express');
-const router = express.Router();
+dotenv            = require('dotenv');
+dotenv.config();
+const express     = require('express');
+const router      = express.Router();
+const jwt         = require('express-jwt');
+const auth        = jwt({
+  secret: process.env.JWT_SECRET,
+  algorithms: ['HS256']
+});
 const ctrlCourses = require('../controllers/courses');
 const ctrlReviews = require('../controllers/reviews');
-const ctrlAuth = require('../controllers/authentication');
+const ctrlAuth    = require('../controllers/authentication');
 
 // Courses
 router
   .route('/courses')
   .get(ctrlCourses.coursesList)
-  .post(ctrlCourses.coursesCreate);
+  .post(auth, ctrlCourses.coursesCreate);
 
 router
   .route('/courses/:courseId')
   .get(ctrlCourses.coursesReadOne)
-  .put(ctrlCourses.coursesUpdateOne)
-  .delete(ctrlCourses.coursesDeleteOne)
+  .put(auth, ctrlCourses.coursesUpdateOne)
+  .delete(auth, ctrlCourses.coursesDeleteOne)
 
 // Reviews
 

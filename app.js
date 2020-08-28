@@ -50,6 +50,9 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).json({"message" : err.name + ": " + err.message})
+  }
 });
 
 module.exports = app;

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 let dbURI = 'mongodb://localhost/Afriteach';
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MLAB_URI;

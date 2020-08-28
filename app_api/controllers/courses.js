@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Crs = mongoose.model('Course');
+const mongoose  = require('mongoose');
+const Crs       = mongoose.model('Course');
 
 const coursesList = (req, res) => {
   res.status(200).json({"status" : "success"});  
